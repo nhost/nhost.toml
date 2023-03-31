@@ -1,4 +1,11 @@
 [global]
+[[global.environment]]
+name = 'GREET_PLAIN'
+value = 'Sayonara'
+
+[[global.environment]]
+name = 'GREET_TYPE'
+value = '{{ secrets.GREET_TYPE }}'
 
 [hasura]
 version = 'v2.15.2'
