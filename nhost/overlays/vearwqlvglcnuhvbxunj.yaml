@@ -1,9 +1,0 @@
-- op: replace
-  path: /hasura/version               # override hasura version
-  value: "v2.25.0-ce"
-
-- op: add                             # add a new env var
-  path: /global/environment/-
-  value:
-    name: ENVIRONMENT
-    value: staging
