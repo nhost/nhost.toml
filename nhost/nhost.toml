@@ -1,11 +1,7 @@
 [global]
 [[global.environment]]
-name = 'GREET_PLAIN'
-value = 'Sayonara'
-
-[[global.environment]]
-name = 'GREET_TYPE'
-value = '{{ secrets.GREET_TYPE }}'
+name = 'qwe'
+value = 'asd'
 
 [hasura]
 version = 'v2.25.1-ce'
@@ -17,7 +13,18 @@ type = 'HS256'
 key = '{{ secrets.HASURA_GRAPHQL_JWT_SECRET }}'
 
 [hasura.settings]
+corsDomain = ['*']
+devMode = true
+enableAllowList = false
+enableConsole = true
 enableRemoteSchemaPermissions = false
+enabledAPIs = ['metadata', 'graphql', 'pgdump', 'config']
+
+[hasura.logs]
+level = 'warn'
+
+[hasura.events]
+httpPoolSize = 100
 
 [functions]
 [functions.node]
@@ -129,12 +136,32 @@ timeout = 60000
 enabled = false
 
 [postgres]
-version = '14.6-20230406-1'
+version = '14.5-20230104-1'
 
 [provider]
 
 [storage]
 version = '0.3.4'
 
+[observability]
 [observability.grafana]
 adminPassword = '{{ secrets.GRAFANA_ADMIN_PASSWORD }}'
+
+[[services]]
+name="hello-world"
+image="docker.io/kong/httpbin:0.1.0"
+command=["gunicorn", "-b", "0.0.0.0:8080", "httpbin:app", "-k", "gevent"]
+
+    [[services.environment]]
+    name="FOO"
+    value="BAR"
+
+    [[services.ports]]
+    http=8080
+
+    [[services.resources]]
+    replicas=1
+
+        [[services.resources.compute]]
+        cpu=250
+        memory=512
