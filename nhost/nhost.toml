@@ -165,22 +165,3 @@ command=["gunicorn", "-b", "0.0.0.0:8080", "httpbin:app", "-k", "gevent"]
         [services.resources.compute]
         cpu=250
         memory=512
-
-[[services]]
-name="bye-world"
-image="docker.io/kong/httpbin:0.1.0"
-command=["gunicorn", "-b", "0.0.0.0:8081", "httpbin:app", "-k", "gevent"]
-
-    [[services.environment]]
-    name="BAR"
-    value="FOO"
-
-    [services.ports]
-    http=8081
-
-    [services.resources]
-    replicas=1
-
-        [services.resources.compute]
-        cpu=250
-        memory=512
