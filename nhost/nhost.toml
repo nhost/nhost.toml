@@ -156,12 +156,12 @@ command=["gunicorn", "-b", "0.0.0.0:8080", "httpbin:app", "-k", "gevent"]
     name="FOO"
     value="BAR"
 
-    [[services.ports]]
+    [services.ports]
     http=8080
 
-    [[services.resources]]
+    [services.resources]
     replicas=1
 
-        [[services.resources.compute]]
+        [services.resources.compute]
         cpu=250
         memory=512
