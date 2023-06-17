@@ -167,16 +167,12 @@ command=["gunicorn", "-b", "0.0.0.0:8080", "httpbin:app", "-k", "gevent"]
         memory=512
 
 [[services]]
-name="bye-world"
-image="docker.io/kong/httpbin:0.1.0"
-command=["gunicorn", "-b", "0.0.0.0:8081", "httpbin:app", "-k", "gevent"]
+name="mysql"
+image="docker.io/mysql:8-oracle"
 
     [[services.environment]]
-    name="BAR"
-    value="FOO"
-
-    [services.ports]
-    http=8081
+    name="MYSQL_ROOT_PASSWORD"
+    value="{{ secrets.MYSQL_ROOT_PASSWORD }}"
 
     [services.resources]
     replicas=1
