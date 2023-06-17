@@ -147,36 +147,36 @@ version = '0.3.4'
 [observability.grafana]
 adminPassword = '{{ secrets.GRAFANA_ADMIN_PASSWORD }}'
 
-[[services]]
-name="hello-world"
-image="docker.io/kong/httpbin:0.1.0"
-command=["gunicorn", "-b", "0.0.0.0:8080", "httpbin:app", "-k", "gevent"]
+# [[services]]
+# name="hello-world"
+# image="docker.io/kong/httpbin:0.1.0"
+# command=["gunicorn", "-b", "0.0.0.0:8080", "httpbin:app", "-k", "gevent"]
 
-    [[services.environment]]
-    name="FOO"
-    value="BAR"
+#     [[services.environment]]
+#     name="FOO"
+#     value="BAR"
 
-    [services.ports]
-    http=8080
+#     [services.ports]
+#     http=8080
 
-    [services.resources]
-    replicas=1
+#     [services.resources]
+#     replicas=1
 
-        [services.resources.compute]
-        cpu=250
-        memory=512
+#         [services.resources.compute]
+#         cpu=250
+#         memory=512
 
-[[services]]
-name="mysql"
-image="docker.io/mysql:8-oracle"
+# [[services]]
+# name="mysql"
+# image="docker.io/mysql:8-oracle"
 
-    [[services.environment]]
-    name="MYSQL_ROOT_PASSWORD"
-    value="{{ secrets.MYSQL_ROOT_PASSWORD }}"
+#     [[services.environment]]
+#     name="MYSQL_ROOT_PASSWORD"
+#     value="{{ secrets.MYSQL_ROOT_PASSWORD }}"
 
-    [services.resources]
-    replicas=1
+#     [services.resources]
+#     replicas=1
 
-        [services.resources.compute]
-        cpu=250
-        memory=512
+#         [services.resources.compute]
+#         cpu=250
+#         memory=512
