@@ -147,7 +147,6 @@ version = '0.3.4'
 [observability.grafana]
 adminPassword = '{{ secrets.GRAFANA_ADMIN_PASSWORD }}'
 
-
 [[services]]
 name="mysql"
 image="docker.io/mysql:8-oracle"
@@ -199,12 +198,8 @@ image="docker.io/wordpress:6.2.2-php8.2"
     name="WORDPRESS_DB_NAME"
     value="wordpress"
 
-    [[services.environment]]
-    name="WORDPRESS_CONFIG_EXTRA"
-    value="define('WP_HOME','http://localhost:8080');define('WP_SITEURL','http://localhost:8080');"
-
     [[services.ports]]
-    port=8080
+    port=80
     type="http"
     publish=true
 
@@ -214,4 +209,3 @@ image="docker.io/wordpress:6.2.2-php8.2"
         [services.resources.compute]
         cpu=250
         memory=512
-
