@@ -178,6 +178,10 @@ image="docker.io/mysql:8-oracle"
         cpu=250
         memory=512
 
+        [[services.resources.storage]]
+        capacity=1
+        path="/var/lib/mysql"
+
 [[services]]
 name="hello-world"
 image="docker.io/wordpress:6.2.2-php8.2"
