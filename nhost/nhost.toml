@@ -147,69 +147,69 @@ version = '0.3.4'
 [observability.grafana]
 adminPassword = '{{ secrets.GRAFANA_ADMIN_PASSWORD }}'
 
-[[services]]
-name="mysql"
-image="docker.io/mysql:8-oracle"
+# [[services]]
+# name="mysql"
+# image="docker.io/mysql:8-oracle"
 
-    [[services.environment]]
-    name="MYSQL_DATABASE"
-    value="wordpress"
+#     [[services.environment]]
+#     name="MYSQL_DATABASE"
+#     value="wordpress"
 
-    [[services.environment]]
-    name="MYSQL_USER"
-    value="wordpress"
+#     [[services.environment]]
+#     name="MYSQL_USER"
+#     value="wordpress"
 
-    [[services.environment]]
-    name="MYSQL_PASSWORD"
-    value="{{ secrets.MYSQL_WORDPRESS_PASSWORD }}"
+#     [[services.environment]]
+#     name="MYSQL_PASSWORD"
+#     value="{{ secrets.MYSQL_WORDPRESS_PASSWORD }}"
 
-    [[services.environment]]
-    name="MYSQL_ROOT_PASSWORD"
-    value="{{ secrets.MYSQL_ROOT_PASSWORD }}"
+#     [[services.environment]]
+#     name="MYSQL_ROOT_PASSWORD"
+#     value="{{ secrets.MYSQL_ROOT_PASSWORD }}"
 
-    [[services.ports]]
-    port=3306
-    type="tcp"
+#     [[services.ports]]
+#     port=3306
+#     type="tcp"
 
-    [services.resources]
-    replicas=1
+#     [services.resources]
+#     replicas=1
 
-        [services.resources.compute]
-        cpu=250
-        memory=512
+#         [services.resources.compute]
+#         cpu=250
+#         memory=512
 
-        [[services.resources.storage]]
-        capacity=1
-        path="/var/lib/mysql"
+#         [[services.resources.storage]]
+#         capacity=1
+#         path="/var/lib/mysql"
 
-[[services]]
-name="hello-world"
-image="docker.io/wordpress:6.2.2-php8.2"
+# [[services]]
+# name="hello-world"
+# image="docker.io/wordpress:6.2.2-php8.2"
 
-    [[services.environment]]
-    name="WORDPRESS_DB_HOST"
-    value="mysql"
+#     [[services.environment]]
+#     name="WORDPRESS_DB_HOST"
+#     value="mysql"
 
-    [[services.environment]]
-    name="WORDPRESS_DB_USER"
-    value="wordpress"
+#     [[services.environment]]
+#     name="WORDPRESS_DB_USER"
+#     value="wordpress"
 
-    [[services.environment]]
-    name="WORDPRESS_DB_PASSWORD"
-    value="{{ secrets.MYSQL_WORDPRESS_PASSWORD }}"
+#     [[services.environment]]
+#     name="WORDPRESS_DB_PASSWORD"
+#     value="{{ secrets.MYSQL_WORDPRESS_PASSWORD }}"
 
-    [[services.environment]]
-    name="WORDPRESS_DB_NAME"
-    value="wordpress"
+#     [[services.environment]]
+#     name="WORDPRESS_DB_NAME"
+#     value="wordpress"
 
-    [[services.ports]]
-    port=80
-    type="http"
-    publish=true
+#     [[services.ports]]
+#     port=80
+#     type="http"
+#     publish=true
 
-    [services.resources]
-    replicas=1
+#     [services.resources]
+#     replicas=1
 
-        [services.resources.compute]
-        cpu=250
-        memory=512
+#         [services.resources.compute]
+#         cpu=250
+#         memory=512
