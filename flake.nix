@@ -8,15 +8,15 @@
   outputs = { self, nixpkgs, flake-utils, nix-filter }:
     flake-utils.lib.eachDefaultSystem (system:
       let
-        version = "v1.3.0";
+        version = "v1.8.3";
         dist = {
           aarch64-darwin = rec {
             url = "https://github.com/nhost/cli/releases/download/${version}/cli-${version}-darwin-arm64.tar.gz";
-            sha256 = "10dzdbpmw28rsqxglq8jwswawdsqp3pqibq725vyv6b9sxz5x0x6";
+            sha256 = "sha256-ELLzSm2R0iP/2mMxlnxqRatpNdyjrdDVzfTXZmXB+Q0=";
           };
           x86_64-linux = rec {
             url = "https://github.com/nhost/cli/releases/download/${version}/cli-${version}-linux-amd64.tar.gz";
-            sha256 = "12ry86f0rkck3rgrq5vhk4pqqbb1h70n0zvnd67kwxzlx5ibb95s";
+            sha256 = "0z3mcp3j7zqp8f6j74h03jy52k7hg3k68ia468pvs5993h34x42q";
           };
         };
         overlays = [
