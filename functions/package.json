@@ -16,7 +16,6 @@
   "license": "ISC",
   "dependencies": {
     "bufferutil": "^4.0.8",
-    "eslint": "^8.52.0",
-    "node-gyp-build": "^4.6.1"
+    "eslint": "^8.52.0"
   }
 }
