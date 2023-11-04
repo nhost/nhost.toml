@@ -1,10 +1,7 @@
 [global]
-[[global.environment]]
-name = 'qwe'
-value = 'asd'
 
 [hasura]
-version = 'v2.29.0-ce'
+version = 'v2.33.4-ce'
 adminSecret = '{{ secrets.HASURA_GRAPHQL_ADMIN_SECRET }}'
 webhookSecret = '{{ secrets.NHOST_WEBHOOK_SECRET }}'
 
@@ -19,6 +16,7 @@ enableAllowList = false
 enableConsole = true
 enableRemoteSchemaPermissions = false
 enabledAPIs = ['metadata', 'graphql', 'pgdump', 'config']
+liveQueriesMultiplexedRefetchInterval = 1000
 
 [hasura.logs]
 level = 'warn'
@@ -31,7 +29,7 @@ httpPoolSize = 100
 version = 18
 
 [auth]
-version = '0.20.1'
+version = '0.21.2'
 
 [auth.redirections]
 clientUrl = 'http://localhost:3000'
@@ -136,7 +134,11 @@ timeout = 60000
 enabled = false
 
 [postgres]
-version = '14.6-20230705-1'
+version = '14.6-20231018-1'
+
+[postgres.resources]
+[postgres.resources.storage]
+capacity = 12
 
 [provider]
 
