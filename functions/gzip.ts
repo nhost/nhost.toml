@@ -12,11 +12,5 @@ export default (req: Request, res: Response) => {
         return
     }
 
-    res.status(200).json(
-        {
-            headers: req.headers,
-            query: req.query,
-            body: body,
-        },
-    )
+    res.status(200).send(body)
 }
