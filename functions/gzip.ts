@@ -9,10 +9,10 @@ export default (req: Request, res: Response) => {
     if (req.headers['accept-encoding']?.includes('gzip')) {
         res.setHeader('Content-Encoding', 'gzip');
         let bodyCompressed = gzipSync(body)
-        console.log('gzip', bodyCompressed.toString('base64'))
-        res.status(200).send(bodyCompressed)
+        console.log('gzip', bodyCompressed)
+        res.status(200).end(bodyCompressed)
     } else {
        console.log("no gzip")
-       res.status(200).send(body)
+       res.status(200).end(body)
     }
 }
