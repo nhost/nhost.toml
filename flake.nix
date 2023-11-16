@@ -101,6 +101,7 @@
             buildInputs = with pkgs; [
               yarn
               nhost
+              nodejs-18_x
             ] ++ buildInputs ++ nativeBuildInputs;
           };
         };

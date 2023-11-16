@@ -8,8 +8,8 @@ export default (req: Request, res: Response) => {
 
     if (req.headers['accept-encoding']?.includes('gzip')) {
         res.setHeader('Content-Encoding', 'gzip');
-        gzip(body, (_, result) => res.status(200).send(result))
+        gzip(body, (_, result) => res.status(200).end(result))
     } else {
-       res.status(200).send(body)
+       res.status(200).end(body)
     }
 }
