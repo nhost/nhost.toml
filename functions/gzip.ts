@@ -4,12 +4,12 @@ import { gzipSync } from 'zlib';
 export default (req: Request, res: Response) => {
     const body = "here is a body"
     res.setHeader('Content-Type', 'text/plain');
-    res.setHeader('Content-Length', body.length);
 
     console.log(req.headers['accept-encoding'])
     if (req.headers['accept-encoding']?.includes('gzip')) {
-        res.setHeader('Content-Encoding', 'gzip');
         let bodyCompressed = gzipSync(body)
+        res.setHeader('Content-Encoding', 'gzip');
+        res.setHeader('Content-Length', bodyCompressed.length);
         console.log('gzip', bodyCompressed)
         res.status(200).end(bodyCompressed)
     } else {
