@@ -10,7 +10,7 @@ export default (req: Request, res: Response) => {
         let bodyCompressed = gzipSync(body)
         res.setHeader('Content-Encoding', 'gzip');
         res.setHeader('Content-Length', bodyCompressed.length);
-        console.log('gzip', bodyCompressed)
+        console.log('gzip', bodyCompressed.length, bodyCompressed)
         res.status(200).end(bodyCompressed)
     } else {
        console.log("no gzip")
