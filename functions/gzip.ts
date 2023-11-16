@@ -13,7 +13,7 @@ export default (req: Request, res: Response) => {
         console.log('gzip', bodyCompressed.length, bodyCompressed)
         res.status(200).end(bodyCompressed)
     } else {
-       console.log("no gzip")
+       console.log("no gzip!!!")
        res.status(200).end(body)
     }
 }
