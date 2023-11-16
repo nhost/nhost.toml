@@ -5,10 +5,14 @@ export default (req: Request, res: Response) => {
     const body = "here is a body"
     res.setHeader('Content-Type', 'text/plain');
 
+    console.log(req.headers['accept-encoding'])
     if (req.headers['accept-encoding']?.includes('gzip')) {
         res.setHeader('Content-Encoding', 'gzip');
-        res.status(200).send(gzipSync(body))
+        let bodyCompressed = gzipSync(body)
+        console.log('gzip', bodyCompressed.toString('base64'))
+        res.status(200).send(bodyCompressed)
     } else {
+       console.log("no gzip")
        res.status(200).send(body)
     }
 }
