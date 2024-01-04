@@ -3,6 +3,20 @@
 name = 'qwe'
 value = 'asd'
 
+[ai]
+version = '0.1.1-beta3'
+webhookSecret = '{{ secrets.GRAPHITE_WEBHOOK_SECRET }}'
+
+[ai.autoEmbeddings]
+synchPeriodMinutes = 5
+
+[ai.openai]
+apiKey = '{{ secrets.OPEANAI_API_KEY }}'
+
+[ai.resources.compute]
+cpu = 256
+memory = 512
+
 [hasura]
 version = 'v2.29.0-ce'
 adminSecret = '{{ secrets.HASURA_GRAPHQL_ADMIN_SECRET }}'
