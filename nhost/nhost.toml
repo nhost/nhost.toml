@@ -4,7 +4,7 @@ name = 'qwe'
 value = 'asd'
 
 [ai]
-version = '0.2.2-beta1'
+version = '0.2.1'
 webhookSecret = '{{ secrets.GRAPHITE_WEBHOOK_SECRET }}'
 
 [ai.autoEmbeddings]
