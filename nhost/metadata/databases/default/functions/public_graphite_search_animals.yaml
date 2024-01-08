@@ -1,0 +1,7 @@
+function:
+  name: graphite_search_animals
+  schema: public
+configuration:
+  custom_root_fields:
+    function: graphiteSearchAnimals
+    function_aggregate: graphiteSearchAnimalsAggregate

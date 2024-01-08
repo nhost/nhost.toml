@@ -1,0 +1,7 @@
+function:
+  name: graphite_similar_animals
+  schema: public
+configuration:
+  custom_root_fields:
+    function: graphiteSimilarAnimals
+    function_aggregate: graphiteSimilarAnimalsAggregate

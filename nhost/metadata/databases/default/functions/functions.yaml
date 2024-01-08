@@ -1,0 +1,2 @@
+- "!include public_graphite_search_animals.yaml"
+- "!include public_graphite_similar_animals.yaml"
