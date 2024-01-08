@@ -3,6 +3,20 @@
 name = 'qwe'
 value = 'asd'
 
+[ai]
+version = '0.3.1'
+webhookSecret = '{{ secrets.GRAPHITE_WEBHOOK_SECRET }}'
+
+[ai.autoEmbeddings]
+synchPeriodMinutes = 5
+
+[ai.openai]
+apiKey = '{{ secrets.OPENAI_API_KEY }}'
+
+[ai.resources.compute]
+cpu = 128
+memory = 256
+
 [hasura]
 version = 'v2.29.0-ce'
 adminSecret = '{{ secrets.HASURA_GRAPHQL_ADMIN_SECRET }}'
@@ -136,7 +150,7 @@ timeout = 60000
 enabled = false
 
 [postgres]
-version = '14.6-20230705-1'
+version = '14.6-20231018-1'
 
 [provider]
 
